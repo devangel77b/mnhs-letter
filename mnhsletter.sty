@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mbsletter}[Morristown Beard School letterhead]
+\ProvidesPackage{mnhsletter}[Manalapan High School letterhead]
 
 \RequirePackage{etoolbox}
 
@@ -26,27 +26,26 @@
 \indentedwidth=\textwidth
 \advance\indentedwidth-\longindentation
 
-\address{70 Whippany Road\\Morristown, NJ 07960}
-\telephone{973.539.3032}
-\newcommand{\faxnum}{973.539.1590}
-\newcommand{\website}{\href{https://www.mbs.net}{www.mbs.net}}
+\address{20 Church Lane\\Englishtown, NJ 07726}
+\telephone{732-792-7200}
+\newcommand{\website}{\href{https://manalapan.frhsd.com/}{manalapan.frhsd.com}}
 
 %Use Garamond (MBS required typeface) and 12 point size
 % Garamond 12 pt
-\RequirePackage[lining]{ebgaramond}
-\RequirePackage[cmintegrals,cmbraces]{newtxmath}
-\RequirePackage{ebgaramond-maths}
+%\RequirePackage[lining]{ebgaramond}
+%\RequirePackage[cmintegrals,cmbraces]{newtxmath}
+%\RequirePackage{ebgaramond-maths}
 \RequirePackage[T1]{fontenc}
 
 \RequirePackage{graphicx}
 
 % Colors
-\RequirePackage{xcolor}
-\definecolor{crimson}{RGB}{160,30,33}
-\definecolor{grey}{RGB}{88,86,89}
-\definecolor{brown}{RGB}{99,86,73}
-\definecolor{green}{RGB}{88,76,67}
-\definecolor{bone}{RGB}{234,233,223}
+%\RequirePackage{xcolor}
+%\definecolor{crimson}{RGB}{160,30,33}
+%\definecolor{grey}{RGB}{88,86,89}
+%\definecolor{brown}{RGB}{99,86,73}
+%\definecolor{green}{RGB}{88,76,67}
+%\definecolor{bone}{RGB}{234,233,223}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=false,hidelinks}
@@ -92,12 +91,12 @@
 \fancypagestyle{firstpage}{
 \fancyhf{}
 %\fancyhead[C]{\includegraphics[width=2.75in]{MBS_Institutional_Logo_WEB.png}}
-\fancyhead[C]{\includegraphics[width=2.75in]{MBS-no-hyphen.png}}
-\fancyfoot[C]{\color{crimson}{\fontsize{10}{12}\selectfont 70 Whippany Road \textbullet\ Morristown, NJ 07960 \textbullet\ Tel: \telephonenum\ \textbullet\ Fax: \faxnum\ \textbullet\ \website}}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{1pt}
- \renewcommand{\footrule}{\hspace{-0.75in}\hbox to 8in{%
-    \color{crimson}\leaders\hrule height \footrulewidth\hfill}}
+%\fancyhead[C]{\includegraphics[width=2.75in]{MBS-no-hyphen.png}}
+%\fancyfoot[C]{\color{crimson}{\fontsize{10}{12}\selectfont 70 Whippany Road \textbullet\ Morristown, NJ 07960 \textbullet\ Tel: \telephonenum\ \textbullet\ Fax: \faxnum\ \textbullet\ \website}}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{1pt}
+% \renewcommand{\footrule}{\hspace{-0.75in}\hbox to 8in{%
+%    \color{crimson}\leaders\hrule height \footrulewidth\hfill}}
 }
 
 % Fix definition of opening
