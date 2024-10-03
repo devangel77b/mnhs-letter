@@ -1,0 +1,118 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mbsletter}[Morristown Beard School letterhead]
+
+\RequirePackage{etoolbox}
+
+% Use one-inch margins
+% set page sizes
+\usepackage{geometry}
+\geometry{
+  showframe,
+  paperwidth=8.5in,
+  paperheight=11in,
+  left=1in,
+  right=1in,
+  top=0.375in,
+  bottom=1in,
+  marginparsep=0.25in,
+  marginparwidth=0in,
+  includemp=false,
+  includehead,
+  showframe=false,
+  % The text width and height are calculated automatically.
+}
+% Signature along left side
+\longindentation=0\textwidth
+\indentedwidth=\textwidth
+\advance\indentedwidth-\longindentation
+
+\address{70 Whippany Road\\Morristown, NJ 07960}
+\telephone{973.539.3032}
+\newcommand{\faxnum}{973.539.1590}
+\newcommand{\website}{\href{https://www.mbs.net}{www.mbs.net}}
+
+%Use Garamond (MBS required typeface) and 12 point size
+% Garamond 12 pt
+\RequirePackage[lining]{ebgaramond}
+\RequirePackage[cmintegrals,cmbraces]{newtxmath}
+\RequirePackage{ebgaramond-maths}
+\RequirePackage[T1]{fontenc}
+
+\RequirePackage{graphicx}
+
+% Colors
+\RequirePackage{xcolor}
+\definecolor{crimson}{RGB}{160,30,33}
+\definecolor{grey}{RGB}{88,86,89}
+\definecolor{brown}{RGB}{99,86,73}
+\definecolor{green}{RGB}{88,76,67}
+\definecolor{bone}{RGB}{234,233,223}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,hidelinks}
+\urlstyle{rm}
+
+\def\fromdig{}
+\newcommand{\digitalsignature}[1]{\def\fromdig{#1}}
+
+% fixing how it does things, also to allow using a digital signature
+\renewcommand\closing[1]{\par\nobreak\vspace{\parskip}%
+\stopbreaks
+\noindent
+\hspace*{\longindentation}
+\parbox{\indentedwidth}{\raggedright
+\ignorespaces #1\\%
+\ifdefempty{\fromdig}{%
+\vspace{6\medskipamount}%
+\fromname}{%
+\fromdig\\%
+\fromname}
+\strut}
+\par
+}
+
+% or if you want to have an empty closing
+\newcommand\noclosing{\par\nobreak\vspace{\parskip}%
+\stopbreaks
+\noindent
+\hspace*{\longindentation}
+\parbox{\indentedwidth}{\raggedright
+\ifdefempty{\fromdig}{%
+\vspace{6\medskipamount}%
+\fromname}{% 
+\fromdig\\% 
+\fromname}
+\strut}
+\par
+}
+
+% define page styles for headers and footers on first page
+\RequirePackage{fancyhdr}
+%\thispagestyle{firstpage}
+\fancypagestyle{firstpage}{
+\fancyhf{}
+%\fancyhead[C]{\includegraphics[width=2.75in]{MBS_Institutional_Logo_WEB.png}}
+\fancyhead[C]{\includegraphics[width=2.75in]{MBS-no-hyphen.png}}
+\fancyfoot[C]{\color{crimson}{\fontsize{10}{12}\selectfont 70 Whippany Road \textbullet\ Morristown, NJ 07960 \textbullet\ Tel: \telephonenum\ \textbullet\ Fax: \faxnum\ \textbullet\ \website}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1pt}
+ \renewcommand{\footrule}{\hspace{-0.75in}\hbox to 8in{%
+    \color{crimson}\leaders\hrule height \footrulewidth\hfill}}
+}
+
+% Fix definition of opening
+% do not include from address as it is in letterhead
+% if date is not empty put on left side
+\renewcommand*\opening[1]{%
+\thispagestyle{firstpage}
+\@date\par%
+\vspace{2\parskip}%
+{\raggedright \toname \expandafter\\\toaddress \par}%
+\vspace{2\parskip}%
+#1\par\nobreak}
+
+
+% LATER 
+% Add other example letters
+% Define plain page too for subsequent pages
+% hooks for address labels and envelopes
